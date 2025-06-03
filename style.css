@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #262433;
+}
+
+.menu{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 170px;
+    height: 170px;
+}
+
+.menu .navigation{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;   
+}
+.menu .navigation span{
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    background: #fff;
+    transform: translate(calc(14px * var(--x)),calc(14px * var(--y)));
+    transition: transform 0.5s , width 0.5s , height 0.5s, backgrouund 0.5s;
+    transition-delay:calc(0,1s * var(--i)) ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu .navigation.active span{
+    width: 45px;
+    height: 45px;
+    background: #37384f;
+    transform: translate(calc(60px * var(--x)),calc(60px * var(--y)));
+}
+
+.menu .navigation span ion-icon{
+    transition: 0.5s;
+    font-size: 0em;
+    color: #fff;
+}
+
+.menu .navigation.active span ion-icon{
+    font-size: 1.35em;
+}
+
+.menu .navigation.active span:hover ion-icon{
+    color: #2dfc52;
+    filter: drop-shadow(0 0 2px #2dfc52) drop-shadow(0 0 5px #2dfc52)
+    drop-shadow(0 0 15px #2dfc52);
+}
+
+.close{
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    background: #fff;
+    transition: 0.5s;
+    transition-delay: 0.4s ;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu .navigation.active ~.close{
+    width: 40px;
+    height: 40px;
+    pointer-events: initial;
+    transition-delay: 0.8s;
+    background: #2dfc52;
+}
+
+.menu .navigation ~ .close ion-icon{
+    font-size: 2em;
+    scale: 0;
+    color: #10131c;
+    transition: 0.5;
+}
+
+.menu .navigation.active ~ .close ion-icon{
+    scale: 1;
+    transition-delay: 1s;
+}
+
+/* 
+  Esse estilo define o layout e animações do menu circular:
+  - Centraliza o menu na tela
+  - Organiza os ícones ao redor do botão central
+  - Aplica animações quando o menu abre e fecha
+  - Define efeitos visuais ao passar o mouse nos ícones
+*/
